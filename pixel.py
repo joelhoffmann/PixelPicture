@@ -1,11 +1,12 @@
 import random
 import numpy as np
 
+
 def randomPixelColor(pixelX, pixelY, img):
     img[pixelX, pixelY] = (random.randrange(0, 2) * 128, random.randrange(0, 2) * 128, random.randrange(0, 2) * 128)
 
 
-def randomPixel(input,img):
+def randomPixel(input, img):
     input += random.choice([-1, 1])
     if input < 0:
         input = 0
@@ -26,9 +27,15 @@ class pixel:
         self.xKoord = x
         self.yKoord = y
 
+    def niceColorMashup(self, xKoord, yKoord):
+        red = 255
+        green = 0 + xKoord
+        return (0,green,red)
+
     def move(self):
         self.xKoord = randomPixel(self.xKoord, self.img)
         self.yKoord = randomPixel(self.yKoord, self.img)
 
         if np.all(self.img[self.xKoord, self.yKoord] == 0):
-            randomPixelColor(self.xKoord, self.yKoord, self.img)
+            self.img[self.xKoord, self.yKoord] = self.niceColorMashup(self.xKoord, self.yKoord)
+            #randomPixelColor(self.xKoord, self.yKoord, self.img)

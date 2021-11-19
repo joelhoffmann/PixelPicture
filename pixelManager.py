@@ -1,5 +1,6 @@
 import pixel
 
+
 class pixManager:
     def __init__(self, img):
         self.manager = []
@@ -33,4 +34,3 @@ class pixManager:
         daughter = pixel.pixel(self.img)
         daughter.startAddPrecisePoint(mother.xKoord, mother.yKoord)
         self.addPixel(daughter)
-

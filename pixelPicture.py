@@ -2,6 +2,7 @@ import random
 from threading import Thread
 import numpy as np
 import cv2
+
 import pixelManager
 
 img = np.zeros((200, 200, 3), np.uint8)
